@@ -51,17 +51,17 @@ User can select a city from the suggested list
 ### Feature 2
 As a user, i should be ablet to show/hide Event Details.
 
-### Scenario 1
+#### Scenario 1
 Given an event element is collapsed by default
 When the user opens the app
 Then the user should see a list of upcoming events
 
-### Scenario 2
+#### Scenario 2
 Given the user can see a list of events
 When the user clicks to expand an event
 Then the event details should be displayed
 
-### Scenario 3
+#### Scenario 3
 Given the user has expanded an event to see details
 When the user clicks to collapse the event
 Then the event details should be hidden
@@ -70,12 +70,12 @@ Then the event details should be hidden
 ### Feature 3
 As a user, i should be able to specify the number of events.
 
-### Scenario 1
+#### Scenario 1
 **Given** the user hasn't specified a number, 32 events are shown by default
 **When** the user opens the app
 **Then** the user should see a list of 32 upcoming events
 
-### Scenario 2
+#### Scenario 2
 **Given** the user can see a list of events
 **When** the user changes the number of events to be displayed
 **Then** the user should see a list of the specified number of events
@@ -84,12 +84,12 @@ As a user, i should be able to specify the number of events.
 ### Feature 4
 As a user, i should be able to use the app when offline.
 
-### Scenario 1
+#### Scenario 1
 **Given** the app has cached data
 **When** there's no internet connection
 **Then** the app should display the cached data
 
-### Scenario 2
+#### Scenario 2
 **Given** the user has changed search settings (city, number of events)
 **When** there's no internet connection
 **Then** the app should show an error message
@@ -98,7 +98,7 @@ As a user, i should be able to use the app when offline.
 ### Feature 5
 As a user, i should be able to add an App Shortcut to the home screen.
 
-### Scenario 1
+#### Scenario 1
 **Given** the app is installed on the device
 **When** the user adds a shortcut to the home screen
 **Then** the app shortcut should be created
@@ -107,7 +107,7 @@ As a user, i should be able to add an App Shortcut to the home screen.
 ### Feature 6
 As a user, i should be able
 
-### Scenario 1
+#### Scenario 1
 **Given** the user is viewing the app
 **When** the app loads
 **Then** a chart with the number of upcoming events in each city should be displayed
