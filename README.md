@@ -3,7 +3,7 @@
 
 1. [Introduction](#Introduction)
 2. [Objective](#Objective)
-3. [User Stories](#User-Stories)
+3. [User Stories / Features](#User-Stories / Features)
    a. [Feature 1](#Feature-1)
    b. [Feature 2](#Feature-2)
    c. [Feature 3](#Feature-3)
@@ -19,12 +19,13 @@
 11. [Acknowledgements](#Acknowldedgements)
 
 ## Introduction
+Welcome to my meet app github repo. this app is build serverless on AWS as a progressive web application (PWA) with React using test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
+For this rather small app we are using serverless so we don´t have to create and maintain a server. Serverless is cost efficient as you pay only for the ressources you use. It comes with autoscale by default and it is easy to deploy. We will use AWS Lambda and Google OAuth for authorization.
 
-Meet app is 
 
 ## Objective
 
-## User-Stories
+## User-Stories / Features
 
 ### Feature 1
 As a user, i should be able to filter events by city, so that i can see a list of events taking place in that city.
@@ -105,7 +106,7 @@ As a user, i should be able to add an App Shortcut to the home screen.
 
 
 ### Feature 6
-As a user, i should be able
+As a user, i should be able to display Charts visualizing event details.
 
 #### Scenario 1
 **Given** the user is viewing the app
@@ -113,9 +114,29 @@ As a user, i should be able
 **Then** a chart with the number of upcoming events in each city should be displayed
 
 
-## Features-&-Requirements
-
 ## Technical-Requirements
+
+● The app must be a React application.
+● The app must be built using the TDD technique.
+● The app must use the Google Calendar API and OAuth2 authentication flow.
+● The app must use serverless functions (AWS lambda is preferred) for the authorization server
+instead of using a traditional server.
+● The app’s code must be hosted in a Git repository on GitHub.
+● The app must work on the latest versions of Chrome, Firefox, Safari, Edge, and Opera, as well
+as on IE11.
+● The app must display well on all screen sizes (including mobile and tablet) widths of 1920px
+and 320px.
+● The app must pass Lighthouse’s PWA checklist.
+● The app must work offline or in slow network conditions with the help of a service worker.
+● Users may be able to install the app on desktop and add the app to their home screen on
+mobile.
+● The app must be deployed on GitHub Pages.
+● The app must implement an alert system using an OOP approach to show information to the
+user.
+● The app must make use of data visualization.
+● The app must be covered by tests with a coverage rate >= 90%.
+● The app must be monitored using an online performance monitoring tool
+
 
 
 ## Live-Version
