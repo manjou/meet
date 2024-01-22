@@ -139,8 +139,8 @@ user.
 
 
 
-## Live-Version
-To deploy the app i was using git-hub pages. You can visit the app at .... . (add link to github pages)
+## Live Version
+To deploy the app, I was using GitHub Pages. You can visit the app [here](https://manjou.github.io/meet/).
 
 
 ## Screenshots
