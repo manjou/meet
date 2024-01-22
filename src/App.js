@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import EventList from './components/EventList';
-import './App.css';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
-import { getEvents } from './api';
+import { extractLocations, getEvents } from './api';
+
+import './App.css';
 
 
 const App = () => {
   const [events, setEvents] = useState([]);
-  const [numberOfEvents, setNumberOfEvents] = useState(35);
+  const [currentNOE, setCurrentNOE] = useState(35);
+  const [allLocations, setAllLocations] = useState([]);
+  const [currentCity, setCurrentCity] = useState("See all cities");
 
   useEffect(() => {
-    getEvents().then(events => setEvents(events.slice(0, numberOfEvents)))
-  }, [numberOfEvents]);
+    const fetchData = async () => {
+      const allEvents = await getEvents();
+      const filteredEvents = currentCity === "See all cities" ? allEvents : allEvents.filter(event => event.location === currentCity)
+      setEvents(filteredEvents.slice(0, currentNOE));
+      setAllLocations(extractLocations(allEvents));
+    } 
+
+    fetchData();
+  }, [currentCity, currentNOE]);
+
+  
+
+
 
   const handleNumberChanged = (event) => {
     const value = event.target.value;
-    setNumberOfEvents(value);
+    setCurrentNOE(value);
   }
 
   return (
     <div className="App">
-      <CitySearch />
-      <NumberOfEvents numberOfEvents={numberOfEvents} onNumberChanged={handleNumberChanged} />
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
+      <NumberOfEvents currentNOE={currentNOE} onNumberChanged={handleNumberChanged} />
       <EventList events={events}/>
     </div>
   );
