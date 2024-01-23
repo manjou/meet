@@ -27,10 +27,11 @@ export const getEvents = async () => {
     }
 
     const token = await getAccessToken();
+
     if (token) {
         removeQuery();
         const url = "https://7iawhokzg9.execute-api.eu-central-1.amazonaws.com/dev/api/get-events" + "/" + token;
-        const response = await(url);
+        const response = await fetch(url);
         const result = await response.json();
         if (result) {
             return result.events;
