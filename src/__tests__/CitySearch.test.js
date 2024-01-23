@@ -58,7 +58,10 @@ describe('<CitySearch /> component', () => {
   test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
     const allEvents = await getEvents();
     const allLocations = extractLocations(allEvents);
-    CitySearchComponent.rerender(<CitySearch allLocations={allLocations} setCurrentCity={() => {}}/>);
+    CitySearchComponent.rerender(<CitySearch 
+      allLocations={allLocations} 
+      setCurrentCity={() => { }}
+    />);
 
     const cityTextBox = CitySearchComponent.queryByRole('textbox');
     await userEvent.type(cityTextBox, "Berlin");
