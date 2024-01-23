@@ -1,7 +1,8 @@
 // src/__tests__/NumberOfEvents.test.js
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import NumberOfEvents from '../components/NumberOfEvents';
+import userEvent from '@testing-library/user-event';
 
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsComponent;
@@ -23,3 +24,15 @@ describe('<NumberOfEvents /> component', () => {
         expect(numberOfEventsInput.value).toBe('10');
     });
 });
+
+describe('<NumberOfEvents /> integration', () => {
+    test('user changes number of events in textbox and number of events in the list will change accordingly', async () => {   
+        render(<NumberOfEvents />);
+        const numberOfEventsInput = screen.getByRole('spinbutton');
+        await userEvent.type(numberOfEventsInput, "{backspace}{backspace}10");
+        const allEvents = await getEvents();
+        
+        expect(numberOfEventsInput.value).toBe("10");
+    })
+})
+
