@@ -86,3 +86,7 @@ input[type="number"] {
   outline: none;
   cursor: pointer;
 }
+.logo {
+  float: left;
+  margin-top: -5px;
+}

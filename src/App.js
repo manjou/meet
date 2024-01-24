@@ -3,6 +3,7 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
+import logo from './meet_logo.png';
 
 import './App.css';
 
@@ -34,6 +35,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <img src={logo} alt="meet logo" className='logo' />
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents currentNOE={currentNOE} onNumberChanged={handleNumberChanged} />
       <EventList events={events}/>
