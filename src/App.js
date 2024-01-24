@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className="App">
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
-      <NumberOfEvents currentNOE={currentNOE} setCurrentNOE={setCurrentNOE} onNumberChanged={handleNumberChanged} />
+      <NumberOfEvents currentNOE={currentNOE} onNumberChanged={handleNumberChanged} />
       <EventList events={events}/>
     </div>
   );

@@ -1,8 +1,10 @@
 // src/__tests__/NumberOfEvents.test.js
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, within, screen, fireEvent } from '@testing-library/react';
 import NumberOfEvents from '../components/NumberOfEvents';
 import userEvent from '@testing-library/user-event';
+import App from '../App';
+import { getEvents } from '../api';
 
 describe('<NumberOfEvents /> component', () => {
     let NumberOfEventsComponent;
@@ -14,7 +16,7 @@ describe('<NumberOfEvents /> component', () => {
         expect(NumberOfEventsComponent.querySelector('.number')).toBeInTheDocument();
     });
 
-    test('renders textbox with default value of 32', () => {
+    test('renders textbox with default value of 35', () => {
         expect(NumberOfEventsComponent.querySelector('.number').value).toBe('35');
     });
 
@@ -27,12 +29,18 @@ describe('<NumberOfEvents /> component', () => {
 
 describe('<NumberOfEvents /> integration', () => {
     test('user changes number of events in textbox and number of events in the list will change accordingly', async () => {   
-        render(<NumberOfEvents />);
-        const numberOfEventsInput = screen.getByRole('spinbutton');
-        await userEvent.type(numberOfEventsInput, "{backspace}{backspace}10");
-        const allEvents = await getEvents();
+        render(<App />);
+        const NumberOfEventsTextBox = within(document.body).getByRole('spinbutton');
         
-        expect(numberOfEventsInput.value).toBe("10");
+        await userEvent.type(NumberOfEventsTextBox, "{backspace}{backspace}10");
+        const allEvents = await getEvents();
+
+        // Now each event is rendered with a class of 'event'
+        const eventElements = screen.getAllByTestId('event');
+        expect(NumberOfEventsTextBox.value).toBe("10");
+        expect(eventElements.length).toBe(10);
     })
 })
+
+
 
