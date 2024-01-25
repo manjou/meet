@@ -17,13 +17,14 @@ defineFeature(feature, test => {
             AppComponent = render(<App />);
         });
 
-        then('the user should see a list of 35 upcoming events', () => { 
+        then('the user should see a list of 35 upcoming events', async () => { 
             AppComponent = render(<App />);
             const AppDOM = AppComponent.container.firstChild;
             const EventListDOM = AppDOM.querySelector('#event-list');
             await waitFor(() => {
               const EventListItems = within(EventListDOM).queryAllByRole('listitem');
               expect(EventListItems.length).toBe(35);
+            });
         });
     });
     test('User changes the number of events to be displayed', ({ given, when, then }) => {
@@ -34,21 +35,20 @@ defineFeature(feature, test => {
             const EventListDOM = AppDOM.querySelector('#event-list');
         });
 
-        when('the user changes the number of events to be displayed', () => {
+        when('the user changes the number of events to be displayed', async () => {
             const NumberOfEventsTextBox = within(AppComponent.container).getByRole('spinbutton');
             fireEvent.change(NumberOfEventsTextBox, { target: { value: 10 }});
             await waitFor(() => expect(NumberOfEventsTextBox.value).toBe('10'));
 
         });
 
-        then('the user should see a list of the specified number of events', () => {
+        then('the user should see a list of the specified number of events', async () => {
             const AppDOM = AppComponent.container.firstChild;
             const EventListDOM = AppDOM.querySelector('#event-list');
             await waitFor(() => {
                 const EventListItems = within(EventListDOM).queryAllByRole('listitem');
                 expect(EventListItems.length).toBe(10);
-            })
+            });
         });
     });
-
 });
