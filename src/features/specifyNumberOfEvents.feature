@@ -1,9 +1,9 @@
 Feature: Specify Number of Events
 
-    Scenario: User sees a default list of 32 upcoming events
-        Given the user hasn't specified a number, 32 events are shown by default
+    Scenario: User sees a default list of 35 upcoming events
+        Given the user hasn't specified a number, 35 events are shown by default
         When the user opens the app
-        Then the user should see a list of 32 upcoming events
+        Then the user should see a list of 35 upcoming events
 
     Scenario: User changes the number of events to be displayed
         Given the user can see a list of events
