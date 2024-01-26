@@ -1,5 +1,6 @@
 import puppeteer from 'puppeteer';
 
+// Feature 2
 describe('show/hide an event detail', () => {
     let browser;
     let page;
@@ -18,12 +19,13 @@ describe('show/hide an event detail', () => {
     afterAll(() => {
         browser.close();
     });
-
+    // Scenario 1
     test('An event element is collapsed by default', async () => {
         const eventDetails = await page.$('.event .details');
         expect(eventDetails).toBeNull();
     });
 
+    // Scenario 2
     test('User can expand an event to see its details', async () => {
         await page.click('.event .details-btn');
 
@@ -31,6 +33,7 @@ describe('show/hide an event detail', () => {
         expect(eventDetails).toBeDefined();
     });
 
+    // Scenario 3
     test('User can collapse an event to hide details', async () => {
         await page.click('.event .details-btn');
         const eventDetails = await page.$('.event .details');
@@ -38,6 +41,8 @@ describe('show/hide an event detail', () => {
     });
 });
 
+
+// Feature 1
 describe('filter events by city', () => {
     let browser;
     let page;
