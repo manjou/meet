@@ -26,12 +26,6 @@
       "sizes": "512x512",
       "purpose": "maskable"
     }
-    // {
-    //   "src": "meet_logo144",
-    //   "sizes": "144x144",
-    //   "type": "image/png",
-    //   "purpose": "any"
-    // }
   ],
   "start_url": ".",
   "display": "standalone",
