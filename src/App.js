@@ -3,7 +3,7 @@ import EventList from './components/EventList';
 import CitySearch from './components/CitySearch';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
-import logo from './meet_logo.png';
+import logo from './meet_logo144.png';
 import { InfoAlert, WarningAlert, ErrorAlert } from './components/Alert';
 
 import './App.css';
