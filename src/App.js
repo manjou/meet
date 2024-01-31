@@ -7,6 +7,7 @@ import { extractLocations, getEvents } from './api';
 import { InfoAlert, WarningAlert, ErrorAlert } from './components/Alert';
 
 import './App.css';
+import CityEventsChart from './components/CityEventsChart';
 
 
 const App = () => {
@@ -56,13 +57,14 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Meet App</h1>
       <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
         {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
       {/* <img src={logo} alt="meet logo" className='logo' /> */}
-      <h1>Meet App</h1>
+
       <CitySearch 
         allLocations={allLocations} 
         setCurrentCity={setCurrentCity}
@@ -72,6 +74,7 @@ const App = () => {
         currentNOE={currentNOE} 
         onNumberChanged={handleNumberChanged} 
         setErrorAlert={setErrorAlert}/>
+      <CityEventsChart allLocations={allLocations} events={events} />
       <EventList events={events}/>
     </div>
   );
