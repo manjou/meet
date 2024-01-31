@@ -27,12 +27,13 @@ const App = () => {
       setEvents(filteredEvents.slice(0, currentNOE));
       setAllLocations(extractLocations(allEvents));
     }
-
+    console.log("Warning Alert before if: " + warningAlert);
     if (navigator.online) {
       setWarningAlert("");
     } else {
       setWarningAlert("Your Internetconnection is offline. Data coming from cache");
     }
+    console.log("Warning Alert after if: " + warningAlert);
     fetchData();
   }, [currentCity, currentNOE]);
 
