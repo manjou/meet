@@ -28,7 +28,7 @@ const App = () => {
       setAllLocations(extractLocations(allEvents));
     }
     console.log("Warning Alert before if: " + warningAlert);
-    if (navigator.online) {
+    if (navigator.onLine) {
       setWarningAlert("");
     } else {
       setWarningAlert("Your Internetconnection is offline. Data coming from cache");
