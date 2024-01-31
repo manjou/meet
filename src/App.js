@@ -16,7 +16,7 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
-  const [WarningAlert, setWarningAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +34,7 @@ const App = () => {
       warningText = "Your Internetconnection is offline. Data coming from cache";
     }
     setWarningAlert(warningText);
-    
+
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -58,7 +58,7 @@ const App = () => {
       <div className='alerts-container'>
         {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
-        {WarningAlert.lenght ? <WarningAlert text={warningAlert}/> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
       {/* <img src={logo} alt="meet logo" className='logo' /> */}
       <h1>Meet App</h1>
