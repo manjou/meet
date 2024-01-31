@@ -35,7 +35,7 @@ const App = () => {
     }
     console.log("Warning Alert after if: " + warningAlert);
     fetchData();
-  }, [currentCity, currentNOE]);
+  }, [currentCity, currentNOE, warningAlert]);
 
 
 
