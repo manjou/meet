@@ -50,6 +50,7 @@ const App = () => {
       errorText = "";
       setErrorAlert(errorText);
       setCurrentNOE(value);
+      setWarningAlert("");
     }
   };
 
