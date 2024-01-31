@@ -29,9 +29,9 @@ const App = () => {
     } 
   
     if (navigator.online) {
-      setWarningAlert = "";
+      setWarningAlert("");
     } else {
-      setWarningAlert = "Your Internetconnection is offline. Data coming from cache";
+      setWarningAlert("Your Internetconnection is offline. Data coming from cache");
     }
 
     fetchData();
