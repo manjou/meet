@@ -26,16 +26,16 @@ const App = () => {
       allEvents.filter(event => event.location === currentCity)
       setEvents(filteredEvents.slice(0, currentNOE));
       setAllLocations(extractLocations(allEvents));
-    } 
-  
+    }
+
     if (navigator.online) {
       setWarningAlert("");
     } else {
       setWarningAlert("Your Internetconnection is offline. Data coming from cache");
     }
-
     fetchData();
   }, [currentCity, currentNOE]);
+
 
 
   const handleNumberChanged = (event) => {
