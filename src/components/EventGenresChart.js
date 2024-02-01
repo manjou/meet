@@ -1,7 +1,7 @@
 // src/components/EventGenresChart.js
 
 import { useState, useEffect } from "react";
-import { ResponsiveContainer, PieChart, Pie, Legend } from "recharts";
+import { ResponsiveContainer, PieChart, Pie, Legend, Cell } from "recharts";
 
 const EventGenresChart = ({ allLocations, events }) => {
     const [data, setData] = useState([]);
@@ -21,6 +21,8 @@ const EventGenresChart = ({ allLocations, events }) => {
         })
         return data; 
     } 
+
+    const colors = ['#DD0000', '#00DD00', '#0000DD', '#DDDD00', '#DD00DD'];
 
     const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, percent, index }) => {
         const RADIAN = Math.PI / 180;
@@ -49,8 +51,15 @@ return (
           fill="#8884d8"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={150}           
-        />
+          outerRadius={150}         
+        >
+            {
+                data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={colors[index]}/>
+                ))
+            }
+        </Pie>
+        <Legend verticalAlign="bottom" align="center" />
       </PieChart>
     </ResponsiveContainer>
   );
