@@ -7,20 +7,21 @@ const EventGenresChart = ({ allLocations, events }) => {
     const [data, setData] = useState([]);
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'Angular'];
 
-    useEffect((events) => {
+    useEffect(() => {
+        const getData = () => {
+            const data = genres.map(genre => {
+                const filteredEvents = events.filter(event => event.summary.includes(genre));
+                return {
+                    name: genre,
+                    value: filteredEvents.length
+                }
+            })
+            return data; 
+        } 
         setData(getData());
-    }, [events]);
+    }, [events, genres]);
 
-    const getData = () => {
-        const data = genres.map(genre => {
-            const filteredEvents = events.filter(event => event.summary.includes(genre));
-            return {
-                name: genre,
-                value: filteredEvents.length
-            }
-        })
-        return data; 
-    } 
+
 
     const colors = ['#DD0000', '#00DD00', '#0000DD', '#DDDD00', '#DD00DD'];
 
